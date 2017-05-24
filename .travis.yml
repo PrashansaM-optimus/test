@@ -25,7 +25,6 @@ before_script:
 - npm install -g surge
 
 script:
-- ng test --watch false
 - ng build --prod --aot
 
 deploy:
