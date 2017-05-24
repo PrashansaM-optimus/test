@@ -22,10 +22,17 @@ before_script:
 - npm install -g typedoc
 - npm install -g reflect-metadata
 - npm install
+- npm install -g surge
 
 script:
 - ng test --watch false
-- ng build
+- ng build --prod --aot
+
+deploy:
+  provider: surge
+  skip_cleanup: true
+  project: ./dist/ # specify the folder from which you want to push your code.
+  domain: angulardemo.surge.sh # your surge.sh domain name
 
 branches:
   only:
